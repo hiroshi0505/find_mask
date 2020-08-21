@@ -4,12 +4,21 @@
     <title>FindMask</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%# Yahoo!が開発した「YUI 3」というリセットCSSを使用 %>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <%# body要素の中にheader要素とfooter要素を追加し、すべてのページでヘッダーとフッターを表示するようにした %>
   <body>
-    <%= yield %>
+    <header class="header">
+      <a href="/masks">FindMask</a>
+      <h1><a href="/masks/new">投稿する</a></h1>
+    </header>
+    <main><%= yield %></main>
+    <footer>
+      <p>Copyright FindMask 2020.</p>
+    </footer>
   </body>
 </html>

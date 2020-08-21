@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  margin: 0;
+  padding: 0 20px;
+  height: 100px;
+  background-color:orange;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+}
+
+.content_post{
+  border: 5px solid black;
+  margin: 0;
+  padding: 0;
+  height: 30vh;
+  width: auto;
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+  height: 100px;
+  background-color:orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

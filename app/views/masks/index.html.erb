@@ -1,0 +1,11 @@
+<%# eachメソッドを使い、すべてのmaskを表示します%>
+<div class="contents">
+  <% @masks.each do |mask| %>
+    <div class="content_post" style="background-image: url(<%= mask.image %>);">
+      <p><%= mask.text %></p>
+      <span class="name">
+        <%= mask.name %>
+      </span>
+    </div>
+  <% end %>
+</div>
