@@ -14,7 +14,5 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname #, :birthday
     # validates :password, format: { with: PASSWORD_REGEX, message: "は英字と数字が混在するようにして下さい"}
-    # validates :first_name, :last_name, format: { with: NAME_REGEX, message: "は全角で入力して下さい"}
-    # validates :first_furigana, :last_furigana, format: { with: FURIGANA_REGEX, message: "は全角カタカナで入力して下さい"}
   end
 end

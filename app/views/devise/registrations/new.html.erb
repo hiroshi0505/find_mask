@@ -1,6 +1,6 @@
 <div class="contents row">
   <div class="container">
-    <h2>Sign up</h2>
+    <h1>新規登録</h1>
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <%= devise_error_messages! %>
 
@@ -28,7 +28,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "Sign up", data: {confirm: "この内容で新規登録しますか？"} %>
       </div>
     <% end %>
   </div>
