@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%# Yahoo!が開発した「YUI 3」というリセットCSSを使用 %>
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <%# <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css"> %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -28,7 +28,7 @@
           </div>
         <% end %>
     </header>
-    <main><%= yield %></main>
+    <%= yield %>
     <footer>
       <p>Copyright FindMask 2020.</p>
     </footer>
