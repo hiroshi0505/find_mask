@@ -3,7 +3,6 @@
     <%= form_with(model: @mask, local: true) do |form| %>
       <h1>投稿する</h1>
       <%= form.text_field :name, placeholder: "Nickname" %>
-      <%# <%= form.text_field :image, placeholder: "Image Url" %>
       <div class="click-upload">
         <p>クリックしてファイルをアップロード</p>
         <%= form.file_field :image %>

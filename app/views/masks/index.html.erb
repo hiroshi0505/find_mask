@@ -4,5 +4,7 @@
     <%= mask.name %>
     <%= mask.text %>
     <%= image_tag mask.image.variant(resize:'500x500'), class: 'mask-image' if mask.image.attached? %>
+    <%# variantメソッドが実行されることで、保存された元画像データを指定されたサイズに変換し、そのURLを返します %>
+    <%# if message.image.attached?と記述することで、画像が存在する場合のみimage_tagが読み込まれるようになります %>
   <% end %>
 </div>
