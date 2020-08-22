@@ -12,8 +12,9 @@
 
   <%# body要素の中にheader要素とfooter要素を追加し、すべてのページでヘッダーとフッターを表示するようにした %>
   <body>
-    <header class="header">
+    <header>
       <a href="/masks">FindMask</a>
+      <p>ここはheader</p>
       <%# user_signed_in?メソッドは、ユーザーがログインしていればtrueを
       <%# ログアウト状態であればfalseを返します。 %>
         <% if user_signed_in? %>
@@ -30,7 +31,7 @@
     </header>
     <%= yield %>
     <footer>
-      <p>Copyright FindMask 2020.</p>
+      <p>ここはfooter</p>
     </footer>
   </body>
 </html>

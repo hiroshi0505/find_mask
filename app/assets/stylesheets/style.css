@@ -3,33 +3,44 @@
 }
 
 body {
+  border: 1px solid;
   margin: 0;
   padding: 0;
 }
 
 header {
+  border: 1px solid;
   margin: 0;
   padding: 0 20px;
   height: 100px;
-  background-color:orange;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
-.content_post{
+.contents{
+  width: 70vw;
   border: 5px solid black;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  height: 30vh;
-  width: auto;
+  display: flex;
 }
 
+.content-left{
+  flex: 2;
+}
+
+.content-right{
+  flex: 1;
+}
+
+
+
 footer {
+  border: 1px solid;
   margin: 0;
   padding: 0;
   height: 100px;
-  background-color:orange;
   display: flex;
   justify-content: center;
   align-items: center;
