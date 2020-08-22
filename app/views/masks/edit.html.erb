@@ -1,0 +1,15 @@
+<div class="contents row">
+  <div class="container">
+    <%= form_with(model: @mask, local: true) do |form| %>
+      <h2>編集する</h2>
+      <div><%= form.text_field :name, placeholder: "ニックネーム" %></div>
+      <div><%= form.text_area :text, placeholder: "説明文", rows: "10" %></div>
+      <div class="click-upload">
+        <p>クリックしてファイルをアップロード</p>
+        <%= form.file_field :image %>
+      </div>
+      <div id="image-list"></div>
+      <%= form.submit "変更する", data: {confirm: "この内容で変更しますか？"} %>
+    <% end %>
+  </div>
+</div>
