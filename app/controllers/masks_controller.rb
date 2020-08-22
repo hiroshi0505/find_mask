@@ -1,5 +1,5 @@
 class MasksController < ApplicationController
-  # indexアクションへのリダイレクトを繰り返して無限ループが起こる対策
+  # indexアクションへのリダイレクトを繰り返して無限ループが起こる対策でexcept: :indexとしている
   before_action :move_to_index, except: :index
 
   # @masksというインスタンス変数に、masksテーブルのレコードを全て代入
@@ -19,6 +19,13 @@ class MasksController < ApplicationController
     # redirect_to root_path # TopPageに移動
     else # 保存できなければ
       render :new # newアクションに飛ぶ
+    end
+  end
+
+  def destroy
+    mask = Mask.find(params[:id])
+    if mask.destroy
+      redirect_to root_path
     end
   end
 
