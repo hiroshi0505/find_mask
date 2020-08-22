@@ -2,6 +2,17 @@
 <div class="contents">
   <div class="content-left">
     <% @masks.each do |mask| %>
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+          <%= link_to '削除1', mask_path(mask.id), method: :delete, data: {confirm: "この投稿を削除しますか？"} %>
+          <%# Prefixを用いて遷移先を指定 %>
+          <%= link_to '削除2', "/masks/#{mask.id}", method: :delete, data: {confirm: "この投稿を削除しますか？"} %>
+          <%# URI Patternを用いて遷移先を指定 %>
+          </li>
+        </ul>
+      </div>
       <p><%= image_tag mask.image.variant(resize:'500x500'), class: 'mask-image' if mask.image.attached? %></p>
       <%# variantメソッドが実行されることで、保存された元画像データを指定されたサイズに変換し、そのURLを返します %>
       <%# if message.image.attached?と記述することで、画像が存在する場合のみimage_tagが読み込まれるようになります %>
