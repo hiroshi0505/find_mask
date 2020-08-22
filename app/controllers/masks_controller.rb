@@ -22,6 +22,20 @@ class MasksController < ApplicationController
     end
   end
 
+  def edit
+    @mask = Mask.find(params[:id])
+  end
+
+  def update
+    mask = Mask.find(params[:id])
+    mask.update(mask_params)
+    redirect_to root_path
+  end
+
+  def show
+    @mask = Mask.find(params[:id])
+  end
+
   def destroy
     mask = Mask.find(params[:id])
     if mask.destroy
