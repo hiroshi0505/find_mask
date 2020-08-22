@@ -6,6 +6,7 @@ class MasksController < ApplicationController
   # この@masksは、ビューファイルで使用
   def index
     @masks = Mask.all.order("created_at DESC") # 降順に並び替え
+  # @masks = Mask.all.order("created_at ASC")  # 昇順に並び替え
   end
 
   def new
@@ -13,7 +14,7 @@ class MasksController < ApplicationController
   end
 
   def create
-    @mask = Mask.new(mask_params) # 生成したインスタンスを、インスタンス変数に代入し、下の式で使う
+    @mask = Mask.new(mask_params) # 生成したインスタンスを、インスタンス変数@maskに代入し、下の式で使う
     if @mask.save # もし保存できたら
       redirect_to masks_path # TopPageに移動
     # redirect_to root_path # TopPageに移動
