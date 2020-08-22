@@ -1,0 +1,17 @@
+<%# eachメソッドを使い、すべてのmaskを表示します%>
+<div class="contents">
+  <div class="content-left">
+    <%= link_to '編集1', edit_mask_path(@mask.id),  method: :get,    data: {confirm: "この投稿を編集しますか？"} %>
+    <%# Prefixを用いて遷移先を指定 %>
+    <%= link_to '編集2', "/masks/#{@mask.id}/edit", method: :get,    data: {confirm: "この投稿を編集しますか？"} %>
+    <%= link_to '削除1', "/masks/#{@mask.id}",      method: :delete, data: {confirm: "この投稿を削除しますか？"} %>
+    <%# URI Patternを用いて遷移先を指定 %>
+    <p><%= image_tag @mask.image.variant(resize:'500x500'), class: 'mask-image' if @mask.image.attached? %></p>
+    <%# variantメソッドが実行されることで、保存された元画像データを指定されたサイズに変換し、そのURLを返します %>
+    <%# if message.image.attached?と記述することで、画像が存在する場合のみimage_tagが読み込まれるようになります %>
+  </div>
+  <div class="content-right">
+    <p><%= @mask.name %></p>
+    <p><%= @mask.text %></p>
+  </div>
+</div>
