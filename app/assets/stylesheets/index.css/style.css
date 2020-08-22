@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+.contents{
+  width: 70vw;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.content{
+  border: 1px solid;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.left-side {
+  border: 1px solid;
+  margin: auto;
+  padding: auto;
+}
+
+.center {
+  border: 1px solid;
+  margin: 0;
+  padding: 0;
+}
+
+.right-side {
+  border: 1px solid;
+  margin: auto;
+  padding: auto;
+}

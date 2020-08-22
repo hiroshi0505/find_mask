@@ -1,5 +1,7 @@
 class Mask < ApplicationRecord
+  belongs_to :user
   has_one_attached :image # maskモデルの各レコードは1つの画像ファイルを添付できる
+
   validates :name, :text, :image, presence: true
 
   # (これ必要か？)画像さえあれば、nameとtextが無くても投稿が可能となる

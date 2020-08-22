@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   # localhost:3000にアクセスした場合、masksコントローラのindexアクションが発動
   root to: "masks#index"
   resources :masks
+  resources :users, only: :show
 end
