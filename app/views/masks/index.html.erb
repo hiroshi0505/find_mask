@@ -1,13 +1,22 @@
-<%# eachメソッドを使い、すべてのmaskを表示します%>
 <div class="contents">
+  <%= will_paginate previous_label: ' &lt 前へ', next_label: '次へ &gt' %>
+    <%# eachメソッドを使い、@masksの中のすべてのmaskを一つづつ取り出し表示します %>
     <% @masks.each do |mask| %>
       <div class="content">
         <div class="left-side">
-          <div><%= link_to '詳細',      mask_path(mask.id), method: :get %></div>
-          <div><%= link_to '編集', edit_mask_path(mask.id), method: :get %></div>
+          <div>
+            <%= link_to '詳細',      mask_path(mask.id), method: :get %>
+          </div>
+          <% if user_signed_in? && current_user.id == mask.user_id %>
+          <div>
+            <%= link_to '編集', edit_mask_path(mask.id), method: :get %>
+          </div>
           <%# Prefixを用いて遷移先を指定 %>
-          <div><%= link_to '削除', "/masks/#{mask.id}",     method: :delete, data: {confirm: "この投稿を削除しますか？"} %></div>
+          <div>
+            <%= link_to '削除', "/masks/#{mask.id}",     method: :delete, data: {confirm: "この投稿を削除しますか？"} %>
+          </div>
           <%# URI Patternを用いて遷移先を指定 %>
+          <% end %>
         </div>
         <div class="center">
           <%= image_tag mask.image.variant(resize:'500x500'), class: 'mask-image' if mask.image.attached? %>
@@ -15,10 +24,16 @@
           <%# if message.image.attached?と記述することで、画像が存在する場合のみimage_tagが読み込まれるようになります %>
         </div>
         <div class="right-side">
-          <a href="/users/<%= mask.user.id %>">
-          <div><%= mask.user.nickname %></div>
-          <div><%= mask.text %></div>
+          <div>
+            <a href="/users/<%= mask.user.id %>">
+              <span>投稿者</span><%= mask.user.nickname %>
+            </a>
+          </div>
+          <div>
+            <%= mask.text %>
+          </div>
         </div>
       </div>
     <% end %>
+  <%= will_paginate %>
 </div>

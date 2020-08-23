@@ -2,6 +2,20 @@
   box-sizing: border-box;
 }
 
+.pagination li {
+  display: inline;
+  padding: 10px 15px;
+  border: 1px solid;
+  border-radius: 5px / 5px;
+  color:white;
+  background-color: chartreuse;
+}
+
+.pagination li:hover{
+  color: black;
+  background-color: white;
+}
+
 .contents{
   width: 70vw;
   margin: 0 auto;

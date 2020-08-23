@@ -6,6 +6,8 @@ body {
   border: 1px solid;
   margin: 0;
   padding: 0;
+  /* background-image: url(https://source.unsplash.com/random); */
+  /* background-size: contain; */
 }
 
 header {
@@ -26,4 +28,15 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.btn1{
+  padding: 10px;
+  color: white;
+  background-color: black;
+}
+
+.btn1:hover{
+  color: black;
+  background-color: white;
 }
