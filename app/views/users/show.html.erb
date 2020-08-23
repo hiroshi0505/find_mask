@@ -1,0 +1,9 @@
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @masks.each do |mask| %>
+    <div>
+      <%= image_tag mask.image.variant(resize:'500x500'), class: 'mask-image' if mask.image.attached? %>
+      <p><%= mask.text %></p>
+    </div>
+  <% end %>
+</div>

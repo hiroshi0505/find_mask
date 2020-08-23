@@ -5,7 +5,8 @@ class MasksController < ApplicationController
   # @masksというインスタンス変数に、masksテーブルのレコードを全て代入
   # この@masksは、ビューファイルで使用
   def index
-    @masks = Mask.all.order("created_at DESC") # 降順に並び替え
+    @masks = Mask.includes(:user)
+    # @masks = Mask.all.order("created_at DESC") # 降順に並び替え
   # @masks = Mask.all.order("created_at ASC")  # 昇順に並び替え
   end
 
@@ -14,7 +15,7 @@ class MasksController < ApplicationController
   end
 
   def create
-    @mask = Mask.new(mask_params) # 生成したインスタンスを、インスタンス変数@maskに代入し、下の式で使う
+    @mask = Mask.new(mask_params) # 生成したインスタンスを、インスタンス変数maskに代入し、下の式で使う
     if @mask.save # もし保存できたら
       redirect_to masks_path # TopPageに移動
     # redirect_to root_path # TopPageに移動
@@ -46,8 +47,8 @@ class MasksController < ApplicationController
 
   private
 
-  def mask_params # masksテーブルにはnameとtextとimageを保存
-    params.require(:mask).permit(:name, :text, :image)
+  def mask_params # masksテーブルにはimageとtextを保存
+    params.require(:mask).permit(:image, :text).merge(user_id: current_user.id)
   end
 
   # 未ログイン状態のユーザーは、indexアクションにリダイレクト

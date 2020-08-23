@@ -2,7 +2,6 @@
   <div class="container">
     <%= form_with(model: @mask, local: true) do |form| %>
       <h2>変更する</h2>
-      <div><%= form.text_field :name, placeholder: "ニックネーム" %></div>
       <div><%= form.text_area :text, placeholder: "説明文", rows: "10" %></div>
       <div class="click-upload">
         <p>クリックしてファイルをアップロード</p>
