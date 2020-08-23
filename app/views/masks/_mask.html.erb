@@ -1,0 +1,43 @@
+<div class="content">
+        <div class="left-side">
+          <div>
+            <%= link_to '詳細',      mask_path(mask.id), method: :get %>
+          </div>
+          <% if user_signed_in? && current_user.id == mask.user_id %>
+          <div>
+            <%= link_to '編集', edit_mask_path(mask.id), method: :get %>
+          </div>
+          <%# Prefixを用いて遷移先を指定 %>
+          <div>
+            <%= link_to '削除', "/masks/#{mask.id}",     method: :delete, data: {confirm: "この投稿を削除しますか？"} %>
+          </div>
+          <%# URI Patternを用いて遷移先を指定 %>
+          <% end %>
+        </div>
+        <div class="center">
+          <%= image_tag mask.image.variant(resize:'500x500'), class: 'mask-image' if mask.image.attached? %>
+          <%# variantメソッドが実行されることで、保存された元画像データを指定されたサイズに変換し、そのURLを返します %>
+          <%# if message.image.attached?と記述することで、画像が存在する場合のみimage_tagが読み込まれるようになります %>
+        </div>
+        <div class="right-side">
+          <div>
+            <a href="/users/<%= mask.user.id %>">
+              <span>投稿者</span><%= mask.user.nickname %>
+            </a>
+          </div>
+          <div>
+            <%= mask.text %>
+          </div>
+        </div>
+        <div class="comments">
+          <h4>＜コメント一覧＞</h4>
+            <% if @comments %>
+              <% @comments.each do |comment| %>
+                <p>
+                  <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>さん:</strong>
+                  <%= comment.text %>
+                </p>
+              <% end %>
+            <% end %>
+        </div>
+      </div>

@@ -1,6 +1,6 @@
 class MasksController < ApplicationController
   # indexアクションへのリダイレクトを繰り返して無限ループが起こる対策でexcept: :indexとしている
-  before_action :move_to_index, except: :index
+  before_action :move_to_index, except: [:index, :show, :search]
 
   # @masksというインスタンス変数に、masksテーブルのレコードを全て代入
   # この@masksは、ビューファイルで使用
@@ -34,6 +34,8 @@ class MasksController < ApplicationController
 
   def show
     @mask = Mask.find(params[:id])
+    @comment = Comment.new
+    @comments = @mask.comments.includes(:user)
   end
 
   def destroy
@@ -43,6 +45,10 @@ class MasksController < ApplicationController
     end
   end
 
+  def search
+    @masks = Mask.search(params[:keyword])
+  end
+  
   private
 
   def mask_params # masksテーブルにはimageとtextを保存

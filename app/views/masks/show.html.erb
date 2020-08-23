@@ -1,5 +1,6 @@
       <div class="content">
         <div class="left-side">
+        <h3>ここは詳細ページ</h3>
         <% if user_signed_in? && current_user.id == @mask.user_id %>
           <div>
             <%= link_to '編集', edit_mask_path(@mask.id), method: :get %>
@@ -12,17 +13,38 @@
         <% end %>
         </div>
         <div class="center">
-          <%= image_tag @mask.image.variant(resize:'750x750'), class: 'mask-image' if @mask.image.attached? %>
+          <%= image_tag @mask.image.variant(resize:'500x500'), class: 'mask-image' if @mask.image.attached? %>
           <%# variantメソッドが実行されることで、保存された元画像データを指定されたサイズに変換します %>
           <%# if @mask.image.attached?と記述することで、画像が存在する場合のみimage_tagが読み込まれるようになります。が、 %>
           <%# もともとバリデーションでimage present trueにしてるので、画像は必ず存在するから、書かなくてよくない？ %>
         </div>
         <div class="right-side">
           <div>
-            <%= link_to @mask.user.nickname, "/users/#{current_user.id}", method: :get %>
+            <%= link_to @mask.user.nickname, "/users/mask.user.id", method: :get %>
           </div>
           <div>
             <%= @mask.text %>
+          </div>
+        </div>
+        <div class="container">
+          <% if current_user %>
+            <%= form_with(model: [@mask, @comment], local: true) do |form| %>
+              <%= form.text_area :text, placeholder: "コメントしよう", rows: "2" %>
+              <%= form.submit "コメント投稿" %>
+            <% end %>
+          <% else %>
+            <strong><p>*** コメントの投稿にはログインが必要です ***</p></strong>
+          <% end %>
+          <div class="comments">
+            <h4>＜コメント一覧＞</h4>
+            <% if @comments %>
+              <% @comments.each do |comment| %>
+                <p>
+                  <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>さん:</strong>
+                  <%= comment.text %>
+                </p>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
