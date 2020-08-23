@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.pagination li {
+  display: inline;
+}
+
 .contents{
   width: 70vw;
   margin: 0 auto;

@@ -1,5 +1,6 @@
 <%# eachメソッドを使い、すべてのmaskを表示します%>
 <div class="contents">
+  <%= will_paginate previous_label: ' &lt 前へ', next_label: '次へ &gt' %>
     <% @masks.each do |mask| %>
       <div class="content">
         <div class="left-side">

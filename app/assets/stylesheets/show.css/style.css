@@ -8,6 +8,10 @@ body {
   padding: 0;
 }
 
+.pagination li {
+  display: inline;
+}
+
 .content{
   width: 70vw;
   margin: 0 auto;

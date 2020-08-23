@@ -6,6 +6,8 @@ body {
   border: 1px solid;
   margin: 0;
   padding: 0;
+  /* background-image: url(https://source.unsplash.com/random); */
+  /* background-size: contain; */
 }
 
 header {

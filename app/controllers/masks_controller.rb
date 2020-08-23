@@ -5,9 +5,7 @@ class MasksController < ApplicationController
   # @masksというインスタンス変数に、masksテーブルのレコードを全て代入
   # この@masksは、ビューファイルで使用
   def index
-    @masks = Mask.includes(:user)
-    # @masks = Mask.all.order("created_at DESC") # 降順に並び替え
-  # @masks = Mask.all.order("created_at ASC")  # 昇順に並び替え
+    @masks = Mask.includes(:user).paginate(page: params[:page], per_page: 1).order("created_at DESC") # DESC降順/ASC昇順に並び替え
   end
 
   def new
