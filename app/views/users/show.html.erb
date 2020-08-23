@@ -1,10 +1,11 @@
-<div class="contents row">
-  <p><%= @nickname %>さんの投稿一覧</p>
-  <%# <%= will_paginate @users, previous_label: ' &lt 前へ', next_label: '次へ &gt' %>
-  <% @masks.each do |mask| %>
-    <div>
-      <%= mask.text %>
-      <%= image_tag mask.image.variant(resize:'500x500'), class: 'mask-image' if mask.image.attached? %>
-    </div>
-  <% end %>
+<div class="contents">
+    <h3><%= @nickname %>さんの投稿一覧</h3>
+  <div class="content">
+    <% @masks.each do |mask| %>
+      <div class="pic">
+        <p><%= mask.text %></p>
+        <%= image_tag mask.image.variant(resize:'500x500'), class: 'mask-image' if mask.image.attached? %>
+      </div>
+    <% end %>
+  </div>
 </div>
