@@ -10,6 +10,9 @@ body {
 
 .pagination li {
   display: inline;
+  padding: 10px 15px;
+  border: 1px solid;
+  border-radius: 5px / 5px;
 }
 
 .content{

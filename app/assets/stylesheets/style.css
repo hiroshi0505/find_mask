@@ -29,3 +29,14 @@ footer {
   justify-content: center;
   align-items: center;
 }
+
+.btn1{
+  padding: 10px;
+  color: white;
+  background-color: black;
+}
+
+.btn1:hover{
+  color: black;
+  background-color: white;
+}
