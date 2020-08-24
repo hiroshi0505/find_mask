@@ -13,8 +13,8 @@
   <%# body要素の中にheader要素とfooter要素を追加し、すべてのページでヘッダーとフッターを表示するようにした %>
   <body>
     <header>
-      <div class="btn1">
-        <%= link_to "FindMask", "/masks", method: :get %>
+      <div>
+        <%= link_to image_tag("findmask.png", class: "logo-image"), "/masks" %>
       </div>
       <p>ここはheader</p>
       <%# user_signed_in?メソッドは、ユーザーがログインしていればtrueを
@@ -22,16 +22,16 @@
       <% if user_signed_in? %>
         <div class="header-right">
           <span>
-            <%= current_user.nickname %>
-            <%= link_to "マイページ", "/users/#{current_user.id}" %>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= current_user.nickname %>様
+            <%= link_to "マイページ", "/users/#{current_user.id}",class: "btn1" %>
+            <%= link_to "ログアウト", destroy_user_session_path, class: "btn1", method: :delete %>
           </span>
-          <%= link_to "投稿する", new_mask_path, class: "post" %>
+          <%= link_to "投稿する", new_mask_path, class: "btn1" %>
         </div>
       <% else %>
         <div class="header-right">
-          <%= link_to "ログイン", new_user_session_path, class: "post" %>
-          <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+          <%= link_to "ログイン", new_user_session_path,class: "btn1" %>
+          <%= link_to "新規登録", new_user_registration_path,class: "btn1" %>
         </div>
       <% end %>
     </header>

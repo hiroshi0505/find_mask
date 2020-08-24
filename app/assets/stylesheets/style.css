@@ -19,13 +19,21 @@ header {
   align-items: center;
 }
 
-.btn1{
+.logo-image {
+  width:25%;
+}
+
+.logo-image:hover {
+  transform:scale(1.5,1.5);
+}
+
+.btn1 {
   padding: 10px;
   color: white;
   background-color: black;
 }
 
-.btn1:hover{
+.btn1:hover {
   color: black;
   background-color: white;
 }
